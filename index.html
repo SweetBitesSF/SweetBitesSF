@@ -34,10 +34,16 @@ body {
   line-height: 1.6;
 }
 
-/* ANIMACIONES */
+/* ANIMACIONES PREMIUM */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeIn {
@@ -51,17 +57,26 @@ body {
   100% { transform: translateY(0px); }
 }
 
-@keyframes popIn {
-  0% { transform: scale(0.5); opacity: 0; }
-  80% { transform: scale(1.05); opacity: 1; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
+/* DECORACIÓN FONDO FLOTANTE */
 body::before { 
-  content:"🍓"; position:fixed; font-size:100px; top:10%; left:5%; opacity:0.03; pointer-events:none; animation: float 6s ease-in-out infinite;
+  content:"🍓"; 
+  position:fixed; 
+  font-size:100px; 
+  top:10%; 
+  left:5%; 
+  opacity:0.03; 
+  pointer-events:none; 
+  animation: float 6s ease-in-out infinite;
 }
 body::after { 
-  content:"🍰"; position:fixed; font-size:100px; bottom:10%; right:5%; opacity:0.03; pointer-events:none; animation: float 8s ease-in-out infinite 1s;
+  content:"🍰"; 
+  position:fixed; 
+  font-size:100px; 
+  bottom:10%; 
+  right:5%; 
+  opacity:0.03; 
+  pointer-events:none; 
+  animation: float 8s ease-in-out infinite 1s;
 }
 
 /* HERO */
@@ -84,95 +99,183 @@ header {
 }
 
 .hero-box img { 
-  width: 100px; margin-bottom: 20px; filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1)); transition: transform 0.5s ease;
+  width: 100px; 
+  margin-bottom: 20px; 
+  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1)); 
+  transition: transform 0.5s ease;
 }
-.hero-box:hover img { transform: scale(1.05) rotate(-5deg); }
+.hero-box:hover img {
+  transform: scale(1.05) rotate(-5deg);
+}
 
 h1 { margin: 0; color: var(--primary); font-size: 42px; font-weight: 800; letter-spacing: -1px; }
 .sub { font-size: 18px; color: var(--accent); font-weight: 600; margin-top: 5px; }
 
 /* PRODUCTOS */
-.contenedor { display: flex; flex-wrap: wrap; justify-content: center; padding: 60px 20px; gap: 35px; }
-.producto {
-  background: var(--white); border-radius: 30px; width: 280px; padding: 25px; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.04);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 1px solid #fef0f5; animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+.contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 35px;
 }
-.producto:hover { transform: translateY(-15px); box-shadow: 0 25px 50px rgba(217, 75, 122, 0.15); }
-.producto img { width: 100%; height: 240px; object-fit: cover; border-radius: 22px; margin-bottom: 20px; transition: transform 0.5s ease; }
+
+.producto {
+  background: var(--white);
+  border-radius: 30px;
+  width: 280px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.04);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid #fef0f5;
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* Retraso en cascada para que los productos aparezcan uno por uno */
+.producto:nth-child(1) { animation-delay: 0.1s; }
+.producto:nth-child(2) { animation-delay: 0.2s; }
+.producto:nth-child(3) { animation-delay: 0.3s; }
+.producto:nth-child(4) { animation-delay: 0.4s; }
+.producto:nth-child(5) { animation-delay: 0.5s; }
+.producto:nth-child(6) { animation-delay: 0.6s; }
+.producto:nth-child(7) { animation-delay: 0.7s; }
+
+.producto:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 25px 50px rgba(217, 75, 122, 0.15);
+}
+
+.producto img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 22px;
+  margin-bottom: 20px;
+  transition: transform 0.5s ease;
+}
+
+.producto:hover img {
+  transform: scale(1.03);
+}
+
 .producto h3 { color: var(--primary); font-size: 24px; margin: 10px 0; }
 .producto p { font-size: 14px; color: #666; min-height: 45px; }
 .precio { font-weight: 800; color: var(--accent); font-size: 22px; margin: 20px 0; }
 
 .boton {
-  display: block; padding: 14px; background: var(--accent); color: white; border-radius: 18px; text-decoration: none;
-  font-weight: 700; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(217, 75, 122, 0.2);
+  display: block;
+  padding: 14px;
+  background: var(--accent);
+  color: white;
+  border-radius: 18px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(217, 75, 122, 0.2);
 }
-.boton:hover { background: var(--primary); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(122, 31, 61, 0.3); }
 
-/* INSTRUCTIVO */
-.como-pedir { background: #fff; padding: 80px 20px; text-align: center; }
-.como-pedir h2 { color: var(--primary); margin-bottom: 50px; font-size: 32px; }
-.pasos-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; max-width: 1100px; margin: 0 auto; }
-.paso-card { flex: 1; min-width: 250px; padding: 30px; position: relative; animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
-.paso-icon {
-  width: 60px; height: 60px; background: var(--bg-soft); color: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 24px; font-weight: 800; border: 1px solid var(--accent);
+.boton:hover { 
+  background: var(--primary); 
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(122, 31, 61, 0.3);
 }
+
+/* INSTRUCTIVO SOFISTICADO */
+.como-pedir {
+  background: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.como-pedir h2 { color: var(--primary); margin-bottom: 50px; font-size: 32px; }
+
+.pasos-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.paso-card {
+  flex: 1;
+  min-width: 250px;
+  padding: 30px;
+  position: relative;
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.paso-card:nth-child(1) { animation-delay: 0.2s; }
+.paso-card:nth-child(2) { animation-delay: 0.4s; }
+.paso-card:nth-child(3) { animation-delay: 0.6s; }
+
+.paso-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--bg-soft);
+  color: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  font-size: 24px;
+  font-weight: 800;
+  border: 1px solid var(--accent);
+  transition: all 0.4s ease;
+}
+
+.paso-card:hover .paso-icon {
+  background: var(--accent);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.paso-card h4 { color: var(--primary); margin-bottom: 10px; font-size: 18px; }
+.paso-card p { font-size: 14px; color: #777; }
+
+/* RESEÑAS */
+.opiniones { padding: 80px 20px; background: var(--bg-soft); text-align: center; }
+.grid-opiniones { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin-top: 40px; }
+.card-review {
+  background: white;
+  padding: 35px;
+  border-radius: 25px;
+  width: 300px;
+  text-align: left;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+  transition: transform 0.3s ease;
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: 0.3s;
+}
+
+.card-review:hover {
+  transform: translateY(-5px);
+}
+
+.review-text { font-style: italic; color: #555; margin-bottom: 20px; font-size: 15px; }
+.review-author { font-weight: 700; color: var(--accent); font-size: 13px; letter-spacing: 1px; }
 
 /* FLOTANTES */
-.float { position: fixed; right: 25px; bottom: 25px; display: flex; flex-direction: column; gap: 15px; z-index: 1000; }
+.float { position: fixed; right: 25px; bottom: 25px; display: flex; flex-direction: column; gap: 15px; z-index: 1000; animation: fadeIn 1s ease 1s both; }
 .float a {
-  color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 14px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15); transition: all 0.3s;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .wa { background: #25D366; }
 .ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
-
-.float-left { position: fixed; left: 25px; bottom: 25px; z-index: 1000; }
-.float-left button {
-  background: var(--primary); color: white; padding: 15px 25px; border-radius: 50px; border: none; cursor: pointer;
-  font-weight: 700; font-size: 14px; box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-}
-
-/* RULETA MODAL */
-.modal-ruleta {
-  display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.7); backdrop-filter: blur(8px); justify-content: center; align-items: center;
-}
-.ruleta-content {
-  background: white; padding: 40px 20px; border-radius: 40px; text-align: center; max-width: 420px;
-  position: relative; box-shadow: 0 25px 60px rgba(0,0,0,0.4); width: 95%;
-  animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-}
-.wheel-wrapper { position: relative; width: 300px; height: 300px; margin: 25px auto; border-radius: 50%; border: 10px solid white; overflow: hidden; }
-.wheel {
-  width: 100%; height: 100%; border-radius: 50%; position: relative; overflow: hidden;
-  background: conic-gradient(#ffb3ba 0deg 60deg, #ffd1a9 60deg 120deg, #fcfeb3 120deg 180deg, #baffc9 180deg 240deg, #bae1ff 240deg 300deg, #e8c3ff 300deg 360deg);
-  transition: transform 5s cubic-bezier(0.15, 0, 0.1, 1);
-}
-.label {
-  position: absolute; top: 50%; left: 50%; width: 50%; height: 40px; margin-top: -20px;
-  transform-origin: left center; font-weight: 800; font-size: 11px; color: #555;
-  display: flex; align-items: center; justify-content: center; text-align: center; padding-left: 20px;
-}
-.label:nth-child(1) { transform: rotate(30deg); }
-.label:nth-child(2) { transform: rotate(90deg); }
-.label:nth-child(3) { transform: rotate(150deg); }
-.label:nth-child(4) { transform: rotate(210deg); }
-.label:nth-child(5) { transform: rotate(270deg); }
-.label:nth-child(6) { transform: rotate(330deg); }
-
-.pointer {
-  position: absolute; top: 15px; left: 50%; transform: translateX(-50%); width: 0; height: 0;
-  border-left: 15px solid transparent; border-right: 15px solid transparent; border-top: 30px solid var(--primary); z-index: 100;
-}
-.boton-ruleta {
-  background: var(--accent); color: white; border: none; padding: 18px 40px; border-radius: 50px;
-  font-weight: 800; cursor: pointer; width: 100%; margin-top: 10px;
-}
-.confetti { position: absolute; width: 10px; height: 10px; z-index: 2001; border-radius: 2px; animation: confettiDrop 3s ease-out forwards; }
-@keyframes confettiDrop { 0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(720deg); opacity: 0; } }
+.float a:hover { transform: scale(1.1) translateY(-3px); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
 
 footer { padding: 40px; text-align: center; font-size: 13px; opacity: 0.6; }
+
 </style>
 </head>
 
@@ -187,13 +290,15 @@ footer { padding: 40px; text-align: center; font-size: 13px; opacity: 0.6; }
 </header>
 
 <div class="contenedor">
+
   <div class="producto">
-    <img src="promo_limon_tiramisu.jpg" alt="Promo">
+    <img src="promo_limon_tiramisu.jpg" alt="Promo Lemon Pie y Tiramisú">
     <h3>Promo Lemon Pie y Tiramisú</h3>
     <p>(Solo válido por este finde)</p>
     <div class="precio">$10.000</div>
-    <a class="boton" target="_blank" href="https://wa.me/5493564526084?text=Hola!%20Quiero%20pedir%20la%20Promo">Pedir ahora</a>
+    <a class="boton" target="_blank" href="https://wa.me/5493564526084?text=Hola!%20Quiero%20pedir%20la%20Promo%20Lemon%20Pie%20y%20Tiramisu">Pedir ahora</a>
   </div>
+
   <div class="producto">
     <img src="lemon_pie.jpg" alt="Lemon Pie">
     <h3>Lemon Pie</h3>
@@ -201,6 +306,7 @@ footer { padding: 40px; text-align: center; font-size: 13px; opacity: 0.6; }
     <div class="precio">$6000</div>
     <a class="boton" target="_blank" href="https://wa.me/5493564526084?text=Hola!%20Quiero%20pedir%20un%20Lemon%20Pie">Pedir ahora</a>
   </div>
+
   <div class="producto">
     <img src="tiramisu.jpg" alt="Tiramisú">
     <h3>Tiramisú</h3>
@@ -208,14 +314,72 @@ footer { padding: 40px; text-align: center; font-size: 13px; opacity: 0.6; }
     <div class="precio">$6000</div>
     <a class="boton" target="_blank" href="https://wa.me/5493564526084?text=Hola!%20Quiero%20pedir%20un%20Tiramisu">Pedir ahora</a>
   </div>
+
+  <div class="producto">
+    <img src="chaja.jpg" alt="Chajá">
+    <h3>Chajá</h3>
+    <p>El balance perfecto entre bizcochuelo nube, crema y merengue.</p>
+    <div class="precio">$6000</div>
+    <a class="boton" target="_blank" href="https://wa.me/5493564526084?text=Hola!%20Quiero%20pedir%20un%20Chajá">Pedir ahora</a>
   </div>
+
+  <div class="producto">
+    <img src="selva_negra.jpg" alt="Selva Negra">
+    <h3>Selva Negra</h3>
+    <p>Chocolate belga, nata montada y cerezas seleccionadas.</p>
+    <div class="precio">$6000</div>
+    <a class="boton" target="_blank" href="https://wa.me/5493564526084?text=Hola!%20Quiero%20pedir%20una%20Selva%20Negra">Pedir ahora</a>
+  </div>
+
+  <div class="producto">
+    <img src="chocolina.jpg" alt="Chocolina">
+    <h3>Chocolina</h3>
+    <p>Nuestra versión premium del postre favorito de Argentina.</p>
+    <div class="precio">$6000</div>
+    <a class="boton" target="_blank" href="https://wa.me/5493564526084?text=Hola!%20Quiero%20pedir%20una%20Chocolina">Pedir ahora</a>
+  </div>
+
+  <div class="producto">
+    <img src="oreo.jpg" alt="Postre Oreo">
+    <h3>Postre Oreo</h3>
+    <p>Texturas de galleta y crema fría que se funden en tu boca.</p>
+    <div class="precio">$6000</div>
+    <a class="boton" target="_blank" href="https://wa.me/5493564526084?text=Hola!%20Quiero%20pedir%20un%20Postre%20Oreo">Pedir ahora</a>
+  </div>
+</div>
 
 <section class="como-pedir">
   <h2>El Arte de Pedir</h2>
   <div class="pasos-container">
-    <div class="paso-card"><div class="paso-icon">1</div><h4>Selección</h4><p>Elige tu tentación favorita.</p></div>
-    <div class="paso-card"><div class="paso-icon">2</div><h4>Contacto</h4><p>Envíanos un WhatsApp para consultar stock!.</p></div>
-    <div class="paso-card"><div class="paso-icon">3</div><h4>Delivery</h4><p>Te llevamos el postre a tu puerta.</p></div>
+    <div class="paso-card">
+      <div class="paso-icon">1</div>
+      <h4>Selección</h4>
+      <p>Explora nuestra carta del día y elige tu tentación favorita.</p>
+    </div>
+    <div class="paso-card">
+      <div class="paso-icon">2</div>
+      <h4>Contacto</h4>
+      <p>Envíanos un mensaje directo vía WhatsApp para confirmar stock.</p>
+    </div>
+    <div class="paso-card">
+      <div class="paso-icon">3</div>
+      <h4>Delivery</h4>
+      <p>Relájate, nosotros nos encargamos de llevar el postre a tu puerta.</p>
+    </div>
+  </div>
+</section>
+
+<section class="opiniones">
+  <h2>Lo que dicen de nosotros</h2>
+  <div class="grid-opiniones">
+    <div class="card-review">
+      <p class="review-text">"La atención es impecable y los postres son realmente frescos. El Chajá es el mejor que probé en San Francisco."</p>
+      <p class="review-author">— VALENTINA R.</p>
+    </div>
+    <div class="card-review">
+      <p class="review-text">"Sabor equilibrado y presentación de primera. Ideal para cuando querés darte un gusto de verdad."</p>
+      <p class="review-author">— JUAN PABLO M.</p>
+    </div>
   </div>
 </section>
 
@@ -224,136 +388,10 @@ footer { padding: 40px; text-align: center; font-size: 13px; opacity: 0.6; }
     <p>© 2026 Sweet Bites | Todos los derechos reservados</p>
 </footer>
 
-<div class="float-left">
-  <button onclick="abrirRuleta()">🎁 Probar Suerte</button>
-</div>
-
 <div class="float">
   <a class="wa" href="https://wa.me/5493564526084?text=Hola!%20Quiero%20consultar%20por%20un%20postre" target="_blank">WhatsApp</a>
   <a class="ig" href="https://www.instagram.com/sweetbites.sf/" target="_blank">Instagram</a>
 </div>
-
-<div id="ruleta-container" class="modal-ruleta">
-  <div class="ruleta-content">
-      <span style="position:absolute; right:20px; top:15px; cursor:pointer; font-size:24px; color:#bbb;" onclick="cerrarRuleta()">&times;</span>
-      <h2 style="color: var(--primary); margin: 0 0 10px 0;">¡Gira y Gana! ✨</h2>
-      <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Tienes 1 intento cada 24 horas.</p>
-      <div class="wheel-wrapper">
-          <div class="pointer"></div>
-          <div id="wheel" class="wheel">
-              <div class="label">Envío Gratis</div>
-              <div class="label">25% OFF</div>
-              <div class="label">10% OFF</div>
-              <div class="label">Postre Gratis</div>
-              <div class="label">2x1 Promo</div>
-              <div class="label">¡Casi! Sigue</div>
-          </div>
-      </div>
-      <button id="spin-btn" class="boton-ruleta" onclick="girarRuleta()">¡GIRAR AHORA!</button>
-      <div id="resultado-ruleta" style="margin-top: 20px; min-height: 50px;"></div>
-  </div>
-</div>
-
-<script>
-// LÓGICA DE LA RULETA
-window.onload = function() {
-    setTimeout(() => { abrirRuleta(); }, 1200);
-};
-
-function abrirRuleta() {
-  document.getElementById('ruleta-container').style.display = 'flex';
-  verificarIntento();
-}
-
-function cerrarRuleta() {
-  document.getElementById('ruleta-container').style.display = 'none';
-}
-
-function verificarIntento() {
-  const lastSpin = localStorage.getItem('sweetbites_last_spin');
-  const btn = document.getElementById('spin-btn');
-  if (lastSpin) {
-      const horasPasadas = (Date.now() - parseInt(lastSpin)) / (1000 * 60 * 60);
-      if (horasPasadas < 24) {
-          btn.disabled = true;
-          btn.style.background = "#ccc";
-          btn.innerText = "¡YA JUGASTE!";
-          return false;
-      }
-  }
-  return true;
-}
-
-function crearConfeti() {
-  for(let i=0; i<50; i++) {
-    const c = document.createElement('div');
-    c.className = 'confetti';
-    c.style.left = Math.random() * 100 + "vw";
-    c.style.backgroundColor = ['#ffb3ba','#ffd1a9','#baffc9','#bae1ff'][Math.floor(Math.random()*4)];
-    document.body.appendChild(c);
-    setTimeout(() => c.remove(), 4000);
-  }
-}
-
-function girarRuleta() {
-  if (!verificarIntento()) return; 
-  
-  const wheel = document.getElementById('wheel');
-  const btn = document.getElementById('spin-btn');
-  const res = document.getElementById('resultado-ruleta');
-  
-  btn.disabled = true;
-  btn.innerText = "¡GIRANDO...!";
-  res.innerHTML = "";
-  
-  const rand = Math.floor(Math.random() * 100) + 1;
-  let indiceGanador = 0;
-  let gano = true;
-  let premio = "";
-  let mensaje = "";
-
-  // CONFIGURACIÓN DE PROBABILIDADES
-  if (rand <= 1) { 
-      indiceGanador = 3; // Postre Gratis (1%)
-      premio = "¡POSTRE GRATIS! 🏆"; 
-      mensaje = "Saca captura y canjéalo ya."; 
-  } else if (rand <= 5) { 
-      indiceGanador = 1; // 25% OFF (4%)
-      premio = "25% OFF ✨"; 
-      mensaje = "¡Increíble descuento!"; 
-  } else if (rand <= 15) { 
-      indiceGanador = 4; // 2x1 Promo (10%)
-      premio = "PROMO 2x1 🍰"; 
-      mensaje = "Doble porción hoy."; 
-  } else if (rand <= 45) { 
-      indiceGanador = 0; // Envío Gratis (30%) -> ALTA
-      premio = "ENVÍO GRATIS 🛵"; 
-      mensaje = "Aprovecha el envío."; 
-  } else if (rand <= 70) { 
-      indiceGanador = 2; // 10% OFF (25%) -> ALTA
-      premio = "10% OFF 🎁"; 
-      mensaje = "Un regalo para vos."; 
-  } else { 
-      indiceGanador = 5; // Casi! (30%) -> ALTA
-      premio = "¡CASI! 😮"; 
-      mensaje = "Vuelve mañana."; 
-      gano = false; 
-  }
-
-  const gradosPorSegmento = 60;
-  // Ajuste: El puntero está arriba (270deg) y queremos que el centro del segmento (30deg offset) coincida
-  const rotacionFinal = (3600 + (270 - (indiceGanador * gradosPorSegmento) - 30));
-  
-  wheel.style.transform = `rotate(${rotacionFinal}deg)`;
-  localStorage.setItem('sweetbites_last_spin', Date.now());
-
-  setTimeout(() => {
-      res.innerHTML = `<b style="color:var(--accent); font-size:18px;">${premio}</b><p style="font-size:13px;">${mensaje}</p>`;
-      btn.innerText = "¡TERMINADO!";
-      if (gano) crearConfeti();
-  }, 5000);
-}
-</script>
 
 </body>
 </html>
